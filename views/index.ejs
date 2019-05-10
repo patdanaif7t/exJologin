@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body onclick="reload()">
+    <h1 align="center" style="font-size: 50px">หน้าแรก</h1>
+    <h1 align="center" style="font-size: 50px">คลิกที่นี่เพื่อเข้าสู่หน้า login</h1>
+    <script>
+      var reload = () => {
+        window.open('http://localhost:3000/login', '_self');
+        
+      }
+    </script>
+  </body>
+</html>

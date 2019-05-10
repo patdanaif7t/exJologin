@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>หน้าแสดงข้อมูลพนักงาน</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset style="margin-left: 35%;width: 400px;margin-top: 10%" align="center">
+        <p align="right" style="font-size: 30px">User : <%= user.doctype %></p>
+        <p style="font-size: 30px">ชื่อ-สกุล : <%= user.name %> <%= user.surname %></p>
+        <p style="font-size: 30px">ตำแหน่งงาน : <%= user.doctype %></p>
+        <p style="font-size: 30px" id="salary">เงินเดือน :<%= user.salary %></p>
+        <p style="font-size: 30px" id="ot">เงิน OT :<%= user.OT %></p>
+        <p style="font-size: 30px" id="bonus">เงินโบนัส : <%= user.bonus %></p>
+        <p style="font-size: 30px" id="total">เงินได้สุทธิ :<%= (user.salary+user.OT+user.bonus)-((user.salary+user.OT+user.bonus)*0.05) %></p>
+    </fieldset>
+<script>
+var salary = parseInt('<%= user.salary %>')
+var ot = parseInt('<%= user.OT %>')
+var bonus = parseInt('<%= user.bonus %>')
+var total = parseInt('<%= (user.salary+user.OT+user.bonus)-((user.salary+user.OT+user.bonus)*0.05) %>')
+
+document.getElementById("salary").innerHTML = "เงินเดือน : "+salary.toLocaleString('en')
+document.getElementById("ot").innerHTML = "เงิน OT : "+ot.toLocaleString('en')
+document.getElementById("bonus").innerHTML = "เงินโบนัส : "+bonus.toLocaleString('en')
+document.getElementById("total").innerHTML = "เงินได้สุทธิ : "+total.toLocaleString('en')
+
+</script>
+
+</body>
+
+</html>

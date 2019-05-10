@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <style>
+        .center {
+            margin: auto;
+            width: 50%;
+            border: 3px solid rgb(255, 17, 0);
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/login" method="post">
+        <fieldset class="center" style="margin-left: 35%;width: 400px ;margin-top: 20%" align="center">
+            <div align="center">
+                <legend style="font-size: 30px">Login</legend>
+                <br>
+                ⠀⠀⠀User: <input type="text" id="user" name="user"><br>
+                <br>
+                Password: <input type="password" id="password" name="password"><br>
+                <br>
+                <button style="display: inline-block;" type="submit" onclick="checkempty()">เข้าสู่ระบบ</button>
+                <button style="display: inline-block;" type="reset">ยกเลิก</button>
+            </div>
+        </fieldset>
+    </form>
+
+    <script>
+        if ('<%= error %>' === 'ไม่ถูก') {
+            alert('ไม่พบข้อมูลผู้ใช้งาน')
+        }
+
+        var checkempty = () => {
+            var id = document.getElementById("user")
+            var pass = document.getElementById("password")
+
+            if (id.value === "" && pass.value === "") {
+                alert('กรุณากรอก User และ Password')
+            }
+        }
+    </script>
+</body>
+
+</html>
